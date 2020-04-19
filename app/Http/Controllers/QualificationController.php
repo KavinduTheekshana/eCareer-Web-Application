@@ -10,4 +10,9 @@ class QualificationController extends Controller
     {
         return view('qualification');
     }
+
+    public function addqualifications()
+    {
+        return view('addqualification');
+    }
 }

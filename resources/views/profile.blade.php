@@ -41,7 +41,7 @@
 
 											<div class="card card-profile-feed " style="padding: 30px">
                                    
-									
+                                                <h5 class="hk-sec-title">Details</h5>
 														
                                                         <div class="row">
                                                             <div class="col-md-5">
@@ -56,7 +56,7 @@
                                                         </div>
 
                                                         <hr>
-                                                        		
+                                                        <h5 class="hk-sec-title">Password</h5>
                                                         <div class="row">
                                                             <div class="col-md-4">
                                                                 <input type="text" class="form-control mt-15" placeholder="Input Box">
@@ -74,9 +74,9 @@
                                                         </div>
 
                                                         <hr>
-
+                                                        <h5 class="hk-sec-title">Profile Picture</h5>
                                                         <div class="row mt-15">
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-12">
 
                                                                 <div class="col-sm">
                                                                     <input type="file" id="input-file-now" class="dropify" />
@@ -85,7 +85,7 @@
                                                             </div>
                                                             <br>
                                                             <hr>
-                                                            <button class="btn btn-primary ml-20 mt-20">&nbsp &nbsp Reset Password &nbsp &nbsp</button>
+                                                            <button class="btn btn-primary ml-20 mt-20">&nbsp &nbsp Change Profile Picture &nbsp &nbsp</button>
                                                             
                                                 
 

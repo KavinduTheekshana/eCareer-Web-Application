@@ -121,7 +121,14 @@ License: You must have a valid license purchased only from templatemonster to le
                         <li class="nav-item">
                             <a class="nav-link" href="qualifications" >
                                 <span class="feather-icon"><i data-feather="zap"></i></span>
-                                <span class="nav-link-text">Qualifications</span>
+                                <span class="nav-link-text">User Qualifications</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="addqualifications" >
+                                <span class="feather-icon"><i data-feather="plus-square"></i></span>
+                                <span class="nav-link-text">Add Qualifications</span>
                             </a>
                         </li>
 
