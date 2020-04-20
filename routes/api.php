@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+//Auth
+Route::group(['prefix' => 'auth','namespace' => 'Auth'], function () {
+    Route::post('signin' , 'LoginController');
+    // Route::post('signout' , 'SignOutController');
+    // Route::get('me' , 'MeController');
 });
-
-
 
 // List
 Route::get('qualifications', 'QualificationController@index');

@@ -72,27 +72,7 @@ License: You must have a valid license purchased only from templatemonster to le
 
 
           
-                <li class="nav-item dropdown dropdown-authentication">
-                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="media">
-                            <div class="media-img-wrap">
-                                <div class="avatar">
-                                    <img src="dist/img/avatar12.jpg" alt="user" class="avatar-img rounded-circle">
-                                </div>
-                                <span class="badge badge-success badge-indicator"></span>
-                            </div>
-                            <div class="media-body">
-                                <span>Madelyn Shane<i class="zmdi zmdi-chevron-down"></i></span>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
-                        <a class="dropdown-item" href="profile.html"><i class="dropdown-icon zmdi zmdi-account"></i><span>Profile</span></a>
-                        <div class="dropdown-divider"></div>
-                        
-                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
-                    </div>
-                </li>
+          
             </ul>
         </nav>
         <form role="search" class="navbar-search">
@@ -150,6 +130,13 @@ License: You must have a valid license purchased only from templatemonster to le
                             <a class="nav-link" href="profile" >
                                 <span class="feather-icon"><i data-feather="user-check"></i></span>
                                 <span class="nav-link-text">Profile</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile" >
+                                <span class="feather-icon"><i data-feather="log-out"></i></span>
+                                <span class="nav-link-text">Logout</span>
                             </a>
                         </li>
 

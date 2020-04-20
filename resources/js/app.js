@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('addqualification', require('./components/AddQualification.vue').default);
 Vue.component('addcategory', require('./components/AddCategory.vue').default);
+Vue.component('profiledetails', require('./components/ProfileDetails.vue').default);
 
 
 /**
