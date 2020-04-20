@@ -39,7 +39,10 @@ License: You must have a valid license purchased only from templatemonster to le
     <link href="vendors/dropify/dist/css/dropify.min.css" rel="stylesheet" type="text/css"/>
     
     <!-- Bootstrap Dropzone CSS -->
-	<link href="vendors/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css"/>
+    <link href="vendors/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css"/>
+    
+     <!-- select2 CSS -->
+     <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
 	
 
 
@@ -133,6 +136,13 @@ License: You must have a valid license purchased only from templatemonster to le
                             <a class="nav-link" href="addqualifications" >
                                 <span class="feather-icon"><i data-feather="plus-square"></i></span>
                                 <span class="nav-link-text">Add Qualifications</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="category" >
+                                <span class="feather-icon"><i data-feather="layers"></i></span>
+                                <span class="nav-link-text">Add Categories</span>
                             </a>
                         </li>
 
@@ -244,6 +254,10 @@ License: You must have a valid license purchased only from templatemonster to le
 
 <!-- Form Flie Upload Data JavaScript -->
 <script src="dist/js/form-file-upload-data.js"></script>
+
+  <!-- Select2 JavaScript -->
+  <script src="vendors/select2/dist/js/select2.full.min.js"></script>
+  <script src="dist/js/select2-data.js"></script>
 
     <!-- Data Table JavaScript -->
     <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>

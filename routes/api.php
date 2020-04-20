@@ -20,17 +20,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-// List articles
+// List
 Route::get('qualifications', 'QualificationController@index');
+Route::get('allqualifications', 'QualificationController@allqualifications');
+Route::get('categories', 'CategoryController@index');
 
-// List single article
+// List single Item
 Route::get('qualification/{id}', 'QualificationController@show');
 
-// Create new article
+// Create new 
 Route::post('qualification', 'QualificationController@store');
+Route::post('category', 'CategoryController@store');
 
-// Update article
+// Update 
 Route::put('qualification', 'QualificationController@store');
 
-// Delete article
+// Delete 
 Route::delete('qualification/{id}', 'QualificationController@destroy');
+Route::delete('category/{id}', 'CategoryController@destroy');

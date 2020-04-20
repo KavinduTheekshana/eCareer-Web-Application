@@ -20,8 +20,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('addqualification', require('./components/AddQualification.vue').default);
+Vue.component('addcategory', require('./components/AddCategory.vue').default);
 
-Vue.component('addq', require('./components/AddQualification.vue'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

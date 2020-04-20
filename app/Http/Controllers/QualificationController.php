@@ -83,4 +83,13 @@ class QualificationController extends Controller
     {
         return view('addqualification');
     }
+
+    public function allqualifications()
+    {
+        // Get articles
+        $qualification = Qualification::orderBy('created_at','desc')->get();
+
+        // Return collection of articles as a resource
+        return QualificationResource::collection($qualification);
+    }
 }

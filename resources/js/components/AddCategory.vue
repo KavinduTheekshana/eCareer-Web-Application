@@ -1,20 +1,37 @@
 <template>
   <div>
     <div class="card card-profile-feed" style="padding: 30px">
-      <h5 class="hk-sec-title">Add Qualification</h5>
+      <h5 class="hk-sec-title">Add Categories</h5>
 
-      <form @submit.prevent="addQualification" action>
+      <form @submit.prevent="addCategory" action>
         <div class="form-group row">
-          <div class="col-sm-8">
+          <div class="col-sm-5">
+               <!-- <input
+              type="text"
+              class="form-control mt-15"
+              placeholder="Category Name"
+              v-model="category.qualification_id"
+            /> -->
+            <select class="form-control mt-15" v-model="category.qualification_id">
+              <option
+                v-for="qualification in qualifications"
+                v-bind:key="qualification.id"
+                v-bind:value="qualification.id"
+              >{{qualification.name}}</option>
+            </select>
+          </div>
+
+          <div class="col-sm-4">
             <input
               type="text"
               class="form-control mt-15"
-              placeholder="Qualification Name"
-              v-model="qualification.name"
+              placeholder="Category Name"
+              v-model="category.name"
             />
           </div>
-          <div class="col-sm-4">
-            <button type="submit" class="btn btn-primary ml-20 mt-15">Add Qualification</button>
+
+          <div class="col-sm-3">
+            <button type="submit" class="btn btn-primary ml-20 mt-15">Add Category</button>
           </div>
         </div>
       </form>
@@ -22,7 +39,7 @@
 
     <hr />
     <section class="hk-sec-wrapper">
-      <h5 class="hk-sec-title">Qualification Table</h5>
+      <h5 class="hk-sec-title">Categories Table</h5>
       <div class="row">
         <div class="col-sm">
           <div class="table-wrap">
@@ -31,17 +48,21 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Qualification</th>
+                    <th>Qualification ID</th>
+                    <th>Qualification name</th>
+                    <th>Category</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="qualification in qualifications" v-bind:key="qualification.id">
-                    <td>{{qualification.id}}</td>
-                    <td>{{qualification.name}}</td>
+                  <tr v-for="categorie in categories" v-bind:key="categorie.id">
+                    <td>{{categorie.id}}</td>
+                    <td>{{categorie.qualification_id}}</td>
+                    <td>{{categorie.qualification}}</td>
+                    <td>{{categorie.name}}</td>
                     <td>
                       <a
-                        @click="editQualification(qualification)"
+                        @click="editCategorie(categorie)"
                         href="#"
                         class="mr-25"
                         data-toggle="tooltip"
@@ -50,7 +71,7 @@
                         <i class="icon-pencil"></i>
                       </a>
                       <a
-                        @click="deleteQualification(qualification.id)"
+                        @click="deleteCategorie(categorie.id)"
                         href="#"
                         data-toggle="tooltip"
                         data-original-title="Close"
@@ -72,7 +93,7 @@
                   <a
                     class="page-link"
                     href="#"
-                    @click="fetchQualifications(pagination.prev_page_url)"
+                    @click="fetchCategory(pagination.prev_page_url)"
                   >Previous</a>
                 </li>
 
@@ -87,7 +108,7 @@
                   <a
                     class="page-link"
                     href="#"
-                    @click="fetchQualifications(pagination.next_page_url)"
+                    @click="fetchCategory(pagination.next_page_url)"
                   >Next</a>
                 </li>
               </ul>
@@ -108,22 +129,39 @@ export default {
         id: "",
         name: ""
       },
-      qualification_id: "",
       pagination: {},
+      categories: [],
+      category: {
+        id: "",
+        qualification_id: "",
+        name: ""
+      },
+      category_id: "",
       edit: false
     };
   },
   created() {
     this.fetchQualifications();
+    this.fetchCategory();
   },
   methods: {
     fetchQualifications(page_url) {
       let vm = this;
-      page_url = page_url || "api/qualifications";
+      page_url = page_url || "api/allqualifications";
       fetch(page_url)
         .then(res => res.json())
         .then(res => {
           this.qualifications = res.data;
+        })
+        .catch(err => console.log(err));
+    },
+    fetchCategory(page_url) {
+      let vm = this;
+      page_url = page_url || "api/categories";
+      fetch(page_url)
+        .then(res => res.json())
+        .then(res => {
+          this.categories = res.data;
           vm.makePagination(res.meta, res.links);
         })
         .catch(err => console.log(err));
@@ -137,60 +175,62 @@ export default {
       };
       this.pagination = pagination;
     },
-    deleteQualification(id) {
+    deleteCategorie(id) {
       if (confirm("Are You Sure?")) {
-        fetch(`api/qualification/${id}`, {
+        fetch(`api/category/${id}`, {
           method: "delete"
         })
           .then(res => res.json())
           .then(data => {
-            alert("Qualification Removed");
-            this.fetchQualifications();
+            alert("Category Removed");
+            this.fetchCategory();
           })
           .catch(err => console.log(err));
       }
     },
-    addQualification() {
+    addCategory() {
       if (this.edit === false) {
         //add
-        fetch("api/qualification", {
+        fetch("api/category", {
           method: "post",
-          body: JSON.stringify(this.qualification),
+          body: JSON.stringify(this.category),
           headers: {
             "content-type": "application/json"
           }
         })
           .then(res => res.json())
           .then(data => {
-            this.qualification.name = "";
-            alert("Qualification Added");
-            this.fetchQualifications();
+            this.category.name = "";
+            this.category.qualification_id = "";
+            alert("Category Added");
+            this.fetchCategory();
           })
           .catch(err => console.log(err));
       } else {
         //edit
-        fetch("api/qualification", {
+        etch("api/category", {
           method: "put",
-          body: JSON.stringify(this.qualification),
+          body: JSON.stringify(this.category),
           headers: {
             "content-type": "application/json"
           }
         })
           .then(res => res.json())
           .then(data => {
-            this.qualification.name = "";
-            alert("Qualification Updated");
-            this.fetchQualifications();
+            this.category.name = "";
+            this.category.qualification_id = "";
+            alert("Category Updated");
+            this.fetchCategory();
           })
           .catch(err => console.log(err));
       }
     },
-    editQualification(qualification) {
+    editCategorie(category) {
       this.edit = true;
-      alert(qualification.id);
-      this.qualification.id = qualification.id;
-      this.qualification.qualification_id = qualification.id;
-      this.qualification.name = qualification.name;
+      this.category.id = category.id;
+      this.category.category_id = category.id;
+      this.category.qualification_id = category.qualification_id;
+      this.category.name = category.name;
     }
   }
 };

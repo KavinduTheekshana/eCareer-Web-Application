@@ -27,3 +27,4 @@ Route::get('/users', 'UserController@index');
 Route::get('/qualifications', 'QualificationController@qualifications');
 Route::get('/profile', 'ProfileController@index');
 Route::get('/addqualifications', 'QualificationController@addqualifications');
+Route::get('/category', 'CategoryController@category');
