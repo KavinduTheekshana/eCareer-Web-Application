@@ -157,7 +157,8 @@ export default {
           method: "post",
           body: JSON.stringify(this.qualification),
           headers: {
-            "content-type": "application/json"
+            "content-type": "application/json",
+            Authorization: "document.cookie"
           }
         })
           .then(res => res.json())

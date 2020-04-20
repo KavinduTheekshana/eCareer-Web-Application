@@ -18,4 +18,9 @@ class LoginController extends Controller
         return response()->json(compact('token'));
      
     }
+
+    public function index()
+    {
+        return view('auth.login');
+    }
 }
