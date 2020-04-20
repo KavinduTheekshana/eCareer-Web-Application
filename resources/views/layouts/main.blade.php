@@ -13,6 +13,10 @@ License: You must have a valid license purchased only from templatemonster to le
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>E-Career | Find Your Career</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script>
+        window.Laravel = {csrfToken: '{{ csrf_token() }}'}
+    </script>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
@@ -255,6 +259,8 @@ License: You must have a valid license purchased only from templatemonster to le
     <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="dist/js/dataTables-data.js"></script>
+
+    <script src="{{asset('js/app.js')}}"></script>
 
 
 </body>

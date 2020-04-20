@@ -24,6 +24,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/users', 'UserController@index');
-Route::get('/qualifications', 'QualificationController@index');
+Route::get('/qualifications', 'QualificationController@qualifications');
 Route::get('/profile', 'ProfileController@index');
 Route::get('/addqualifications', 'QualificationController@addqualifications');

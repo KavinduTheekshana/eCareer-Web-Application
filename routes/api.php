@@ -17,3 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+// List articles
+Route::get('qualifications', 'QualificationController@index');
+
+// List single article
+Route::get('qualification/{id}', 'QualificationController@show');
+
+// Create new article
+Route::post('qualification', 'QualificationController@store');
+
+// Update article
+Route::put('qualification', 'QualificationController@store');
+
+// Delete article
+Route::delete('qualification/{id}', 'QualificationController@destroy');
