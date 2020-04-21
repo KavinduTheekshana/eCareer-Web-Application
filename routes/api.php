@@ -28,22 +28,28 @@ Route::group(['prefix' => 'auth','namespace' => 'Auth'], function () {
 
 // List
 Route::get('qualifications', 'QualificationController@index');
+Route::get('users', 'UserController@index');
 Route::get('allqualifications', 'QualificationController@allqualifications');
 Route::get('categories', 'CategoryController@index');
 
 // List single Item
 Route::get('qualification/{id}', 'QualificationController@show');
+Route::get('user/{id}', 'UserController@show');
 
 // Create new 
 Route::middleware('auth:api')->post('qualification', 'QualificationController@store');
-Route::post('category', 'CategoryController@store');
-Route::post('register', 'Auth\RegisterController@register');
+Route::middleware('auth:api')->post('user', 'UserController@store');
+Route::middleware('auth:api')->post('useractive', 'UserController@useractive');
+Route::middleware('auth:api')->post('userdiactive', 'UserController@userdiactive');
+Route::middleware('auth:api')->post('category', 'CategoryController@store');
 
 // Update 
 Route::middleware('auth:api')->put('qualification', 'QualificationController@store');
+Route::middleware('auth:api')->put('user', 'UserController@store');
 Route::middleware('auth:api')->put('updateprofile', 'ProfileController@updateprofile');
 
 
 // Delete 
 Route::middleware('auth:api')->delete('qualification/{id}', 'QualificationController@destroy');
-Route::delete('category/{id}', 'CategoryController@destroy');
+Route::middleware('auth:api')->delete('user/{id}', 'UserController@destroy');
+Route::middleware('auth:api')->delete('category/{id}', 'CategoryController@destroy');

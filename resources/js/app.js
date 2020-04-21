@@ -25,6 +25,7 @@ Vue.component('profiledetails', require('./components/ProfileDetails.vue').defau
 Vue.component('login', require('./components/Login.vue').default);
 Vue.component('register', require('./components/Register.vue').default);
 Vue.component('registerindustry', require('./components/RegisterIndustry.vue').default);
+Vue.component('user', require('./components/User.vue').default);
 
 
 /**
