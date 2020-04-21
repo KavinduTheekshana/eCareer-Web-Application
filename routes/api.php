@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 //Auth
 Route::group(['prefix' => 'auth','namespace' => 'Auth'], function () {
     Route::post('signin' , 'LoginController');
-    // Route::post('signout' , 'SignOutController');
+    Route::get('me' , 'MeController');
 });
 
 // List
@@ -38,6 +38,8 @@ Route::post('category', 'CategoryController@store');
 
 // Update 
 Route::middleware('auth:api')->put('qualification', 'QualificationController@store');
+Route::middleware('auth:api')->put('updateprofile', 'ProfileController@updateprofile');
+
 
 // Delete 
 Route::middleware('auth:api')->delete('qualification/{id}', 'QualificationController@destroy');

@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('universiry')->nullable();
             $table->string('student_id')->nullable();
             $table->string('company')->nullable();
+            $table->string('profile_pic')->default('uploads/profile_pic/default.png');
             $table->string('user_type');
             $table->string('status');
             $table->string('password');
