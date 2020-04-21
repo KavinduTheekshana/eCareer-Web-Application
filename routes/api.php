@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'auth','namespace' => 'Auth'], function () {
     Route::post('signin' , 'LoginController');
     // Route::post('signout' , 'SignOutController');
-    // Route::get('me' , 'MeController');
 });
 
 // List
@@ -34,12 +33,12 @@ Route::get('categories', 'CategoryController@index');
 Route::get('qualification/{id}', 'QualificationController@show');
 
 // Create new 
-Route::post('qualification', 'QualificationController@store');
+Route::middleware('auth:api')->post('qualification', 'QualificationController@store');
 Route::post('category', 'CategoryController@store');
 
 // Update 
-Route::put('qualification', 'QualificationController@store');
+Route::middleware('auth:api')->put('qualification', 'QualificationController@store');
 
 // Delete 
-Route::delete('qualification/{id}', 'QualificationController@destroy');
+Route::middleware('auth:api')->delete('qualification/{id}', 'QualificationController@destroy');
 Route::delete('category/{id}', 'CategoryController@destroy');

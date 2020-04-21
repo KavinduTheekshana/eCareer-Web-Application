@@ -60,7 +60,7 @@ export default {
           .then(res => res.json())
           .then(res => {
           this.login.token = res.token;
-          document.cookie =res.token;
+          document.cookie = "authToken="+res.token;
         })
         .catch(err => console.log(err));
 

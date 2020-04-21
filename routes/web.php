@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'auth','namespace' => 'Auth'], function () {
+    Route::get('signout' , 'SignOutController@redirect');
+});
+
+
+
 // Auth::routes();
 
 Route::get('/login', 'Auth\LoginController@index');
@@ -26,7 +32,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/users', 'UserController@index');
-Route::get('/qualifications', 'QualificationController@qualifications');
+// Route::get('/qualifications', 'QualificationController@qualifications');
+
+Route::get('qualifications', function()
+{
+    return response()->view('qualification');
+});
+
+Route::get('addqualifications', function()
+{
+    return response()->view('addqualification');
+});
+
 Route::get('/profile', 'ProfileController@index');
-Route::get('/addqualifications', 'QualificationController@addqualifications');
 Route::get('/category', 'CategoryController@category');

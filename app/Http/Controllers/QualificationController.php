@@ -9,9 +9,9 @@ use App\Http\Resources\Qualification as QualificationResource;
 class QualificationController extends Controller
 {
 
-    public function __construct(){
-        $this->middleware(['auth:api']);
-    }
+    // public function __construct(){
+    //     $this->middleware(['auth:api']);
+    // }
 
     
     /**
@@ -37,6 +37,8 @@ class QualificationController extends Controller
      */
     public function store(Request $request)
     {
+        // $this->middleware(['auth:api']);
+
         $qualification = $request->isMethod('put') ? Qualification::findOrFail($request->qualification_id) : new Qualification;
 
         $qualification->id = $request->input('qualification_id');
@@ -80,15 +82,9 @@ class QualificationController extends Controller
     }
 
 
-    public function qualifications()
-    {
-        return view('qualification');
-    }
+   
 
-    public function addqualifications()
-    {
-        return view('addqualification');
-    }
+  
 
     public function allqualifications()
     {

@@ -134,10 +134,13 @@ License: You must have a valid license purchased only from templatemonster to le
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="profile" >
+                            {{-- <form action="auth/signout" method="POST">
+                                @csrf --}}
+                            <a class="nav-link" href="auth/signout" >
                                 <span class="feather-icon"><i data-feather="log-out"></i></span>
                                 <span class="nav-link-text">Logout</span>
                             </a>
+                        {{-- </form> --}}
                         </li>
 
             

@@ -2292,6 +2292,7 @@ __webpack_require__.r(__webpack_exports__);
     fetchQualifications: function fetchQualifications(page_url) {
       var _this = this;
 
+      // alert(document.cookie.split(";")[0])
       var vm = this;
       page_url = page_url || "api/qualifications";
       fetch(page_url).then(function (res) {
@@ -2315,9 +2316,16 @@ __webpack_require__.r(__webpack_exports__);
     deleteQualification: function deleteQualification(id) {
       var _this2 = this;
 
+      var token = document.cookie.split(";")[0];
+
       if (confirm("Are You Sure?")) {
         fetch("api/qualification/".concat(id), {
-          method: "delete"
+          method: "delete",
+          body: JSON.stringify(this.qualification),
+          headers: {
+            "content-type": "application/json",
+            Authorization: "Bearer " + token.split('=')[1]
+          }
         }).then(function (res) {
           return res.json();
         }).then(function (data) {
@@ -2332,6 +2340,8 @@ __webpack_require__.r(__webpack_exports__);
     addQualification: function addQualification() {
       var _this3 = this;
 
+      var token = document.cookie.split(";")[0]; // alert(token.split('=')[1]);
+
       if (this.edit === false) {
         //add
         fetch("api/qualification", {
@@ -2339,7 +2349,7 @@ __webpack_require__.r(__webpack_exports__);
           body: JSON.stringify(this.qualification),
           headers: {
             "content-type": "application/json",
-            Authorization: "document.cookie"
+            Authorization: "Bearer " + token.split('=')[1]
           }
         }).then(function (res) {
           return res.json();
@@ -2357,7 +2367,8 @@ __webpack_require__.r(__webpack_exports__);
           method: "put",
           body: JSON.stringify(this.qualification),
           headers: {
-            "content-type": "application/json"
+            "content-type": "application/json",
+            Authorization: "Bearer " + token.split('=')[1]
           }
         }).then(function (res) {
           return res.json();
@@ -2373,7 +2384,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     editQualification: function editQualification(qualification) {
       this.edit = true;
-      alert(qualification.id);
       this.qualification.id = qualification.id;
       this.qualification.qualification_id = qualification.id;
       this.qualification.name = qualification.name;
@@ -2452,7 +2462,7 @@ __webpack_require__.r(__webpack_exports__);
         return res.json();
       }).then(function (res) {
         _this.login.token = res.token;
-        document.cookie = res.token;
+        document.cookie = "authToken=" + res.token;
       })["catch"](function (err) {
         return console.log(err);
       });
