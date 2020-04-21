@@ -7,7 +7,7 @@
         <div class="auth-form w-xxl-55 w-xl-75 w-sm-90 w-xs-100">
 
 <div id="app">
-    <register></register>
+    <registerindustry></registerindustry>
 </div>
 
 </div>

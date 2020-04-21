@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'auth','namespace' => 'Auth'], function () {
     Route::post('signin' , 'LoginController');
     Route::get('me' , 'MeController');
+    Route::post('register', 'RegisterController');
+    Route::post('registerindustry', 'RegisterIndustryController');
 });
 
 // List
@@ -35,6 +37,7 @@ Route::get('qualification/{id}', 'QualificationController@show');
 // Create new 
 Route::middleware('auth:api')->post('qualification', 'QualificationController@store');
 Route::post('category', 'CategoryController@store');
+Route::post('register', 'Auth\RegisterController@register');
 
 // Update 
 Route::middleware('auth:api')->put('qualification', 'QualificationController@store');

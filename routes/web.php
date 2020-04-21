@@ -26,6 +26,8 @@ Route::group(['prefix' => 'auth','namespace' => 'Auth'], function () {
 // Auth::routes();
 
 Route::get('/login', 'Auth\LoginController@index');
+Route::get('/register', 'Auth\RegisterController@index');
+Route::get('/industry', 'Auth\RegisterController@industry');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -22,7 +22,7 @@
                 <p class="font-14 text-center mt-15">Having trouble logging in?</p>
                 <div class="option-sep">or</div>
          
-                <p class="text-center">Do have an account yet? <a href="#">Sign Up</a></p>
+                <p class="text-center">Do have an account yet? <a href="register">Sign Up</a></p>
             </form>
 
 

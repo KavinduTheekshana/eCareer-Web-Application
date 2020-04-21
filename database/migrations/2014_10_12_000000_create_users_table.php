@@ -20,12 +20,12 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('nic');
             $table->string('phone');
-            $table->string('universiry')->nullable();
+            $table->string('university')->nullable();
             $table->string('student_id')->nullable();
             $table->string('company')->nullable();
             $table->string('profile_pic')->default('uploads/profile_pic/default.png');
-            $table->string('user_type');
-            $table->string('status');
+            $table->boolean('user_type')->default(false);
+            $table->boolean('status')->default(false);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
