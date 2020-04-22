@@ -51,5 +51,4 @@ Route::middleware('auth:api')->put('updateprofile', 'ProfileController@updatepro
 
 // Delete 
 Route::middleware('auth:api')->delete('qualification/{id}', 'QualificationController@destroy');
-Route::middleware('auth:api')->delete('user/{id}', 'UserController@destroy');
 Route::middleware('auth:api')->delete('category/{id}', 'CategoryController@destroy');

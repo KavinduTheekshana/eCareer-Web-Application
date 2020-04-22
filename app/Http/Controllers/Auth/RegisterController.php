@@ -48,7 +48,6 @@ class RegisterController extends Controller
         ]);
 
         return new UserResource($user);
-        // return response()->json(compact('user'),201);
     }
 
 
